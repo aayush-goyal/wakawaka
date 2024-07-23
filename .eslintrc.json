@@ -1,0 +1,40 @@
+{
+    "env": {
+        "browser": false,
+        "es2021": true,
+        "node": true
+    },
+    "extends": ["standard", "prettier"],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": ["@typescript-eslint", "prettier"],
+    "rules": {
+        "@typescript-eslint/no-use-before-define": ["error"],
+        "import/extensions": [2, { "ts": "never", "tsx": "never" }],
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": [
+                    "test.{ts,tsx}", // repos with a single test file
+                    "test-*.{ts,tsx}", // repos with multiple top-level test files
+                    "**/*{.,_}{test,spec}.{ts,tsx}", // tests where the extension or filename suffix denotes that it is a test
+                    "**/jest.config.ts", // jest config
+                    "**/jest.setup.ts" // jest setup
+                ],
+                "optionalDependencies": false
+            }
+        ],
+        "import/no-unresolved": [0],
+        "indent": [
+            "error",
+            4,
+            { "SwitchCase": 1, "offsetTernaryExpressions": false }
+        ],
+        "no-undef": "off",
+        "no-use-before-define": "off",
+        "prettier/prettier": [2, { "useTabs": false }]
+    }
+}
