@@ -1,6 +1,6 @@
 {
     "name": "wakawaka",
-    "version": "0.2.0",
+    "version": "0.6.0",
     "type": "module",
     "main": "server.ts",
     "repository": "https://github.com/aayush-goyal/wakawaka",
@@ -15,10 +15,15 @@
         "test-coverage": "jest --coverage --detectOpenHandles --watchAll --silent=false"
     },
     "dependencies": {
+        "@sentry/cli": "^2.36.6",
+        "@sentry/node": "^8.33.1",
         "axios": "^1.7.2",
+        "chalk": "^5.3.0",
         "cors": "^2.8.5",
         "echarts": "^5.5.1",
-        "express": "^4.19.2"
+        "express": "^4.19.2",
+        "morgan": "^1.10.0",
+        "winston": "^3.15.0"
     },
     "devDependencies": {
         "@types/cors": "^2.8.17",
