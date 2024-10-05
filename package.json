@@ -1,6 +1,6 @@
 {
     "name": "wakawaka",
-    "version": "0.6.0",
+    "version": "0.9.0",
     "type": "module",
     "main": "server.ts",
     "repository": "https://github.com/aayush-goyal/wakawaka",
@@ -27,6 +27,7 @@
     },
     "devDependencies": {
         "@types/cors": "^2.8.17",
+        "@types/echarts": "^4.9.22",
         "@types/express": "^4.17.21",
         "@types/node": "^20.12.2",
         "@typescript-eslint/eslint-plugin": "^7.7.1",
