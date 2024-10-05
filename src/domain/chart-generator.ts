@@ -29,11 +29,11 @@ import logger from '../utils/logger';
 /**
  * This file contains code to generate chart images from user stats data.
  *
- * @version 1.0.0
+ * @version 1.1.0
  * @author Aayush Goyal
  * @created 2024-10-05
- * @modifier
- * @modified
+ * @modifier Aayush Goyal
+ * @modified 2024-10-06
  */
 const colorsArray = [
     '#CFB3E8',
@@ -125,7 +125,7 @@ export default async function generateChartImg(
           </style>
         `;
 
-        svgStr = svgStr.split('<style>')[0] + '</svg>';
+        svgStr = svgStr.split('<style>')[0];
         svgStr = svgStr.replace('<svg', `${fontFaceRule}<svg`);
         return svgStr;
     } catch (error: any) {
