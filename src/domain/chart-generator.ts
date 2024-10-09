@@ -107,26 +107,8 @@ export default async function generateChartImg(
             filteredStats
         )) as EChartsOption;
         chart.setOption(chartData);
-        let svgStr = chart.renderToSVGString();
+        const svgStr = chart.renderToSVGString().split('<style>')[0];
 
-        const fontFaceRule = `
-          <style>
-            @font-face {
-                font-family: 'Manrope';
-                font-style: normal;
-                font-weight: 400;
-                font-display: swap;
-                src: url(https://fonts.gstatic.com/s/manrope/v15/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk79FN_C-bnTfc7AGrY.woff2) format('woff2');
-                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-            }
-            text {
-              font-family: 'Manrope';
-            }
-          </style>
-        `;
-
-        svgStr = svgStr.split('<style>')[0];
-        svgStr = svgStr.replace('<svg', `${fontFaceRule}<svg`);
         return svgStr;
     } catch (error: any) {
         logger.error(error.toString());
