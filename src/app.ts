@@ -9,7 +9,7 @@ import morgan from 'morgan';
 
 // Import routers.
 import chartsRouter from './routes/charts';
-// import statsRouter from './routes/stats';
+import statsRouter from './routes/stats';
 // Import models.
 // Entities.
 // Enums.
@@ -90,7 +90,7 @@ app.use(cors(corsOpts));
  * Url Routes
  */
 app.use('/charts', chartsRouter);
-// app.use('/stats', statsRouter);
+app.use('/stats', statsRouter);
 
 /*
  * No API end-point.
