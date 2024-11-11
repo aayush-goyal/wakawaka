@@ -52,6 +52,7 @@ const getBestDayStats =
             const bestDay = (userData.data.data as Stat).best_day;
 
             if (!bestDay) {
+                logger.error('404 - Best Day data not found.', bestDay);
                 return res.status(404).json({
                     message: 'No data found.'
                 });
@@ -66,8 +67,11 @@ const getBestDayStats =
             bestDay.date = formattedDate.split(' ').join('%20');
             bestDay.text = bestDay.text.split(' ').join('%20') + '-blue';
 
-            let shieldString = 'https://img.shields.io/badge/';
-            shieldString = shieldString + bestDay.date + '-' + bestDay.text;
+            const shieldString =
+                'https://img.shields.io/badge/' +
+                bestDay.date +
+                '-' +
+                bestDay.text;
 
             res.status(200).json({
                 message: 'Success',
